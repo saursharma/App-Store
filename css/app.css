@@ -56,3 +56,33 @@
   margin-top: 2%;
   border: 3px solid rgb(33, 165, 115);
 }
+
+.app-title {
+  margin: 0 1em;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.app-category {
+  margin: 1em 1em;
+  font-size: 42px;
+  font-style: italic;
+  color: grey;
+}
+
+.app-dialog {
+  width: 80%;
+  height: 80%;
+}
+
+.app-dialog-header {
+  background: yellowgreen !important;
+}
+
+.app-download {
+  font-size: 46px;
+  position: fixed;
+  bottom: 1em;
+  width: 93%;
+  height: 2em;
+}

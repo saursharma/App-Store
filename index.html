@@ -6,88 +6,39 @@
   <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
   <script src="bower_components/hammerjs/hammer.min.js"></script>
   <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script> 
   <script src="js/appController.js"></script>
   <link rel="stylesheet" type="text/css" href="css/app.css">
-  <!-- Odometr includes -->
-  <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
-  <script src="http://github.hubspot.com/odometer/odometer.js"></script>
 </head>
 <body ng-controller="adminCtrl">
   <md-toolbar md-scroll-shrink>
     <div class="md-toolbar-tools">
-      <md-button ng-click="toggleLeft()">
-        <md-icon icon="bower_components/material-design-icons/navigation/drawable-hdpi/ic_menu_white_24dp.png"></md-icon>
+      <md-button ng-href="#">
+        <md-icon icon="images/ic_home_white_48dp.png"></md-icon>
       </md-button>
-      <h2> {{title}} </h2>
+      <h1 style="font-size: 46px;"> {{title}} </h1>
     </div>
   </md-toolbar>
-  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-    <md-toolbar class="md-theme-indigo" ng-controller="LeftCtrl">
-    <div layout="row">
-      <div flex>
-      <span style="padding: 12%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true" ng-click="close()"></span> 
-      </div><div flex>
-      <h1 class="md-toolbar-tools">Menu</h1>
-      </div></div>
-    </md-toolbar>
-    <md-content class="md-padding" ng-controller="LeftCtrl">
-       <md-list>
-         <md-item ng-repeat="item in menuItems"> 
-           <md-item-content>
-           <a href="{{url}}">
-           <div layout="row">
-             <div flex>
-               <span class="glyphicon {{item.icon}}" aria-hidden="true"></span> 
-             </div>
-             <div flex>
-               <span> {{item.name}} </span>
-             </div>
-           </div>
-           </a>
-           <hr/>
-           </md-item-content>
-          </md-item>
-       </md-list>
-    </md-content>
-  </md-sidenav>
 
-  <!-- Grid for Dash board -->
+  <!-- Grid for Dash -->
   <md-content>
-    <div layout="row" class="dashboard-grid">
-     <div flex>
-        <md-card class="grid-child">
-          <div class="grid-child-1">
-            <div id="box1" data-theme="default" class="odometer">00</div>
-          </div>
-          <div class="grid-text"> Text1 </div>
-        </md-card>
+    <div ng-repeat="app in apps">
+      <md-card ng-click="showDialog($event, app)" style="height:12em;">
+      <div layout="row">
+        <div>
+          <img src = "{{app.icon}}" style="width: 10em;"></img>
+        </div>
+        <div flex >
+          <div layout="column">
+            <div class="app-title">
+          {{app.name}} 
+        </div>
+        <div class="app-category">
+          {{app.category}}
+        </div>
+        </div>
       </div>
-      <div flex>
-        <md-card class="grid-child">
-          <div class="grid-child-2">
-            <div id="box2" data-theme="default" class="odometer">000000</div>
-          </div>
-          <div class="grid-text"> Text2 </div>
-        </md-card>
-      </div>
-      <div flex>
-        <md-card class="grid-child">
-          <div class="grid-child-3">
-            <div id="box3" data-theme="default" class="odometer">0000</div>
-          </div>
-          <div class="grid-text"> Text3 </div>
-        </md-card>
-      </div>
+      </md-card>
     </div>
   </md-content>
-
-  <!-- Floating button at bottom right corner -->
-  <md-button id="addPopUp" class="md-fab md-raised" ng-click="showDialog($event)" aria-label="Add anything.. :)">
-    <md-tooltip> Yo!! Add tooltip here </md-tooltip>
-    <md-icon icon="bower_components/material-design-icons/content/svg/production/ic_add_24px.svg" style="width: 24px; height: 24px;"></md-icon>
-  </md-button>
-
 </html>
